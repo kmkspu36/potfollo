@@ -159,6 +159,48 @@ h2 > span { color: var(--green); }
 nav a[aria-current='page'] { color: var(--green); text-decoration: underline; text-underline-offset: 7px; }
 .skip-link { position: fixed; top: -80px; left: 16px; z-index: 20; background: var(--green); color: white; padding: 12px 20px; border-radius: 4px; }
 .skip-link:focus { top: 12px; }
+/* 화려한 디자인 효과 */
+body { background: radial-gradient(circle at 12% 0%, #d8efff 0, transparent 38%), radial-gradient(circle at 92% 18%, #e4e0ff 0, transparent 34%), #f5f9fb; background-attachment: fixed; }
+.site-header { backdrop-filter: blur(10px); background: rgba(247, 250, 253, .8); box-shadow: 0 4px 24px #2b3f6214; }
+.wordmark { background: linear-gradient(90deg, #1d3a73, #2f8fe0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.brand-symbol { color: #2f8fe0; display: inline-block; animation: spin-slow 10s linear infinite; }
+nav a { position: relative; }
+nav a::after { content: ''; position: absolute; left: 0; bottom: 4px; width: 0; height: 2px; background: linear-gradient(90deg, #2f8fe0, #7aa7ff); transition: width .25s; }
+nav a:hover::after { width: 100%; }
+nav a[aria-current='page'] { text-decoration: none; }
+nav a[aria-current='page']::after { width: 100%; }
+h1 > span, h2 > span { background: linear-gradient(90deg, #1f6fd0, #6f8cff, #22b8e8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.underlined::after { background: linear-gradient(90deg, #90c6e9, #c3d4ff); }
+.button-primary { background: linear-gradient(135deg, #2b3f62, #2f6fd0); box-shadow: 0 8px 20px #2f6fd044; }
+.button-primary:hover { background: linear-gradient(135deg, #2f6fd0, #22b8e8); box-shadow: 0 12px 26px #2f6fd055; }
+.status-dot { box-shadow: 0 0 0 0 #2f8fe099; animation: pulse 2s infinite; }
+.hero-copy > * { animation: rise .7s both; }
+.hero-copy > *:nth-child(2) { animation-delay: .1s; }
+.hero-copy > *:nth-child(3) { animation-delay: .2s; }
+.hero-copy > *:nth-child(4) { animation-delay: .3s; }
+.hero-copy > *:nth-child(5) { animation-delay: .4s; }
+.art-grid { background-color: #cfe6f7; background-image: linear-gradient(135deg, #bfe0ff99, #d9d4ff99), linear-gradient(#ffffff55 1px, transparent 1px), linear-gradient(90deg, #ffffff55 1px, transparent 1px); background-size: auto, 28px 28px, 28px 28px; }
+.art-orbit { border-color: #6aa6e0; animation: spin-slow 24s linear infinite; }
+.project-window { animation: float 6s ease-in-out infinite; box-shadow: 9px 11px 0 #2f6fd0; }
+.floating-label { animation: float 5s ease-in-out infinite reverse; }
+.idea-note { background: linear-gradient(135deg, #84ddff, #a9b8ff); animation: float 7s ease-in-out infinite; }
+.art-spark { background: linear-gradient(135deg, #2f8fe0, #a05cff); -webkit-background-clip: text; background-clip: text; color: transparent; animation: spin-slow 12s linear infinite; }
+.interest-tags span { background: linear-gradient(135deg, #dcefff, #e6e3ff); color: #2b3f62; font-weight: 600; transition: transform .2s, box-shadow .2s; }
+.interest-tags span:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 14px #2f6fd033; }
+.about-profile-art { background: linear-gradient(145deg, #cfe6ff, #dcd8ff 60%, #c3f0ff); box-shadow: 0 16px 36px #2f6fd026; }
+.about-profile-art > span { display: inline-block; animation: float 5s ease-in-out infinite; }
+.about-details > div { transition: background .2s, padding-left .2s; }
+.about-details > div:hover { background: #ffffffaa; padding-left: 14px; border-radius: 6px; }
+.portfolio-section, .work-invitation { background: linear-gradient(135deg, #e3f1ff, #ebe8ff); }
+.project-card-link { transition: transform .25s, box-shadow .25s; }
+.project-card-link:hover .project-art { box-shadow: 0 14px 28px #2f6fd033; }
+.section-divider { border-image: linear-gradient(90deg, #2f8fe0, #a05cff, transparent) 1; }
+.work-invitation .button, .hero-actions .button { animation: rise .7s .5s both; }
+@keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+@keyframes spin-slow { to { rotate: 360deg; } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes pulse { 70% { box-shadow: 0 0 0 9px #2f8fe000; } 100% { box-shadow: 0 0 0 0 #2f8fe000; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
 @media (min-width: 1450px) { .hero { padding-block: 105px 95px; } }
 @media (max-width: 1000px) {
   .page-width, .header-inner { width: calc(100% - 56px); }
