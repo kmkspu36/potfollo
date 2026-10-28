@@ -10,7 +10,16 @@ function getCurrentLocation() {
   return window.location.hash
 }
 
-const projects = []
+const projects = [
+  {
+    number: '01',
+    category: 'WEB · 웹사이트',
+    title: '나의 포트폴리오',
+    description: '나를 자기소개하는 사이트',
+    style: 'website',
+    overview: '나를 자기소개하는 사이트입니다.',
+  },
+]
 
 function ProjectArtwork({ project, className = '' }) {
   return (
@@ -155,16 +164,14 @@ function App() {
             <div className="detail-banner">
               <ProjectArtwork project={selectedProject} className="detail-art" />
               <div className="detail-overview">
-                <span className="example-label">실습용 예시</span>
                 <h2>프로젝트 소개</h2>
                 <p>{selectedProject.overview}</p>
-                <p className="detail-example-note">소개와 과정은 예시입니다. 직접 만든 프로젝트의 내용과 이미지로 바꿔 보세요.</p>
               </div>
             </div>
             <div className="detail-story">
-              <section className="detail-story-section" aria-labelledby="project-goal"><h2 id="project-goal"><span>01</span> 왜 만들었나요?</h2><p>{selectedProject.goal}</p></section>
-              <section className="detail-story-section" aria-labelledby="project-process"><h2 id="project-process"><span>02</span> 어떻게 만들었나요?</h2><ol>{selectedProject.process.map((step) => <li key={step}>{step}</li>)}</ol></section>
-              <section className="detail-story-section" aria-labelledby="project-learning"><h2 id="project-learning"><span>03</span> 무엇을 배웠나요?</h2><p>{selectedProject.learning}</p></section>
+              {selectedProject.goal && <section className="detail-story-section" aria-labelledby="project-goal"><h2 id="project-goal"><span>01</span> 왜 만들었나요?</h2><p>{selectedProject.goal}</p></section>}
+              {selectedProject.process?.length > 0 && <section className="detail-story-section" aria-labelledby="project-process"><h2 id="project-process"><span>02</span> 어떻게 만들었나요?</h2><ol>{selectedProject.process.map((step) => <li key={step}>{step}</li>)}</ol></section>}
+              {selectedProject.learning && <section className="detail-story-section" aria-labelledby="project-learning"><h2 id="project-learning"><span>03</span> 무엇을 배웠나요?</h2><p>{selectedProject.learning}</p></section>}
             </div>
             <div className="detail-bottom"><p>다른 작업도 둘러보세요.</p><a className="button button-primary" href="#/portfolio">목록으로 돌아가기 <span aria-hidden="true">→</span></a></div>
           </> : <div className="project-not-found"><h1 id="project-title" tabIndex={-1}>프로젝트를 찾을 수 없어요.</h1><p>주소를 확인하거나 포트폴리오 목록에서 작업을 선택해 주세요.</p><a className="button button-primary" href="#/portfolio">포트폴리오 목록 보기 <span aria-hidden="true">→</span></a></div>}
